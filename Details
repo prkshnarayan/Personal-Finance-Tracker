@@ -1,0 +1,59 @@
+Name: Bommisetty Jaya Prakash
+Email ID: jayaprakashbommisetty2580@gmail.com
+Contact: +91 8897704032
+Portfolio: https://prkshnarayan.github.io/Portfolio/
+
+
+## This project is related to the Personal Finance Tracker project.
+
+
+## Features:
+Tracking the finance like income, expenses, and balance
+Instant updating of balance after updating/adding the record(transaction).
+User friendly and user experience.
+
+
+## Technologies used:
+---Python, HTML, CSS, JavaScript, Django framework, SQLite (database)
+
+
+## Brief Explanation of the complete project:
+
+---Django follows MVT/MVC pattern as M stands for Models(related to database tables), V stands for Views (related to the
+ python logic connecting to the Models) and T stands for Templates (related to the user experience or used to present
+ the data to the user)
+
+---to add/save the data a Model named AddTransaction class is created.
+
+---the input from the HTML forms are handled using the AddTransactionForm class in the forms.py.
+
+---Created an app named Financeapp containing all the code related to adding transactions.
+
+---The file Financeapp.urls are responsible for the url routing.
+
+---In order to access the static files without any error the url and directory are to be mentioned in the
+settings.py file as mentioned below:
+
+        STATIC_URL = 'static/'
+        STATICFILES_DIRS = [
+            BASE_DIR / "static",
+        ]
+        STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+---All the static files (CSS, JS and images if necessary) are placed in a separate directory names static inside
+the project.
+
+---All the Templates are grouped in a templates directory (and add 'DIRS': ['templates'] in the templates dictionary of
+settings.py file) inside the project and outside the app directory.
+
+---The views.py has the logic of adding the transaction carefully using the POST method, as if the method is post it
+takes the input from the user using AddTransactionForm and saves the record to the database. If the method id not
+post it will be redirecting to the same page without adding the details to the database.
+
+---After adding the transaction to the database successfully, using the filter method the details
+(form (user input data), income, expense and balance) are accessed using ORM(Object Relational Mapping) and
+sends the data to the HTML template using the context dictionary.
+
+---The template display.html consists of user form input, summary (income, expense, balance), and also consists of
+transaction details (like title, type, amount, category and date)
